@@ -1,0 +1,23 @@
+{
+  "name": "classroom-quiz",
+  "version": "1.0.0",
+  "description": "Сайт для создания и проведения тестов в классе с подключением по QR-коду",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n SERVER,CLIENT -c blue,green \"node --watch server/index.js\" \"npm --prefix client run dev\"",
+    "build": "npm --prefix client run build",
+    "build:exe": "npm run build && node scripts/build-exe.mjs",
+    "start": "node server/index.js",
+    "test": "node --test tests/server.test.js"
+  },
+  "dependencies": {
+    "adm-zip": "^0.6.1",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "postject": "^1.0.0-alpha.6"
+  }
+}
